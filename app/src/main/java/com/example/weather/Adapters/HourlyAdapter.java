@@ -13,14 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.weather.Domains.Hourly;
 import com.example.weather.R;
+import com.example.weather.Utils.IconCodeToDrawableID;
 
 import java.util.ArrayList;
 
 public class HourlyAdapter extends RecyclerView.Adapter<HourlyAdapter.ViewHolder> {
 
-    ArrayList<Hourly> items;
+    private ArrayList<Hourly> items;
 
-    Context context;
+    private Context context;
 
     public HourlyAdapter(ArrayList<Hourly> items) {
         this.items = items;
@@ -38,10 +39,10 @@ public class HourlyAdapter extends RecyclerView.Adapter<HourlyAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull HourlyAdapter.ViewHolder holder, int position) {
         holder.hourText.setText(items.get(position).getHour());
-        holder.temperatureText.setText(items.get(position).getTemperature() + "℃");
+        holder.temperatureText.setText(items.get(position).getTemperature());
 
         int drawableResourceId = holder.itemView.getResources()
-                .getIdentifier(items.get(position).getPicPath(), "drawable", context.getPackageName());
+                .getIdentifier(IconCodeToDrawableID.findDrawableId(items.get(position).getPicCode()), "drawable", context.getPackageName());
 
         Glide.with(context)
                 .load(drawableResourceId)

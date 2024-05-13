@@ -1,7 +1,7 @@
 package com.example.weather.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.weather.Adapters.TomorrowAdapter;
+import com.example.weather.Application.WeatherApplication;
 import com.example.weather.Domains.Tomorrow;
 import com.example.weather.R;
 
@@ -16,40 +17,54 @@ import java.util.ArrayList;
 
 public class TomorrowActivity extends AppCompatActivity {
 
+    private ArrayList<Tomorrow> tomorrows;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tomorrow);
 
+        WeatherApplication app = (WeatherApplication) getApplicationContext();
+
+        tomorrows = app.getTomorrows();
+
+        initView();
         initRecyclerView();
-        setBackToMainActivity();
+        setNavigation();
     }
 
-    private void setBackToMainActivity() {
-        ConstraintLayout backToMainBtn = findViewById(R.id.backBtn);
+    private void initView() {
+        TextView tomorrowTemperatureRange = findViewById(R.id.tomorrow_temperature_range_text);
+        TextView tomorrowWeather = findViewById(R.id.tomorrow_weather_text);
+        TextView tomorrowWind = findViewById(R.id.tomorrow_wind_text);
+        TextView tomorrowRain = findViewById(R.id.tomorrow_rain_text);
+        TextView tomorrowHumidity = findViewById(R.id.tomorrow_humidity_text);
+
+        Tomorrow tomorrow = tomorrows.get(1);
+
+        tomorrowTemperatureRange.setText(tomorrow.getLowTemperature() + "~" + tomorrow.getHighTemperature() + "°");
+        tomorrowWeather.setText(tomorrow.getWeather());
+        tomorrowWind.setText(tomorrow.getWind());
+        tomorrowRain.setText(tomorrow.getRain());
+        tomorrowHumidity.setText(tomorrow.getHumidity());
+    }
+
+    private void setNavigation() {
+        ConstraintLayout backToMainBtn = findViewById(R.id.backBtnTomorrow);
         backToMainBtn.setOnClickListener(v -> finish());
     }
 
     private void initRecyclerView() {
 
-        RecyclerView.Adapter<TomorrowAdapter.ViewHolder> adapterTomorrow;
+        TomorrowAdapter adapterTomorrow;
 
         RecyclerView recyclerView;
 
-        ArrayList<Tomorrow> items = new ArrayList<>();
 
-        items.add(new Tomorrow("07/01", "tianqi_qing", "晴", 30, 20));
-        items.add(new Tomorrow("07/02", "tianqi_baoyu", "暴雨", 31, 21));
-        items.add(new Tomorrow("07/03", "tianqi_baoyuzhuandabaoyu", "暴雨转大暴雨", 32, 22));
-        items.add(new Tomorrow("07/04", "tianqi_baoyu", "暴雨", 33, 23));
-        items.add(new Tomorrow("07/05", "tianqi_baoyuzhuandabaoyu", "暴雨转大暴雨", 34, 24));
-        items.add(new Tomorrow("07/06", "tianqi_baoyu", "暴雨", 35, 25));
-        items.add(new Tomorrow("07/07", "tianqi_baoyuzhuandabaoyu", "暴雨转大暴雨", 36, 26));
-
-        recyclerView = findViewById(R.id.recyclerView2);
+        recyclerView = findViewById(R.id.recyclerView_next_seven_day);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        adapterTomorrow = new TomorrowAdapter(items);
+        adapterTomorrow = new TomorrowAdapter(tomorrows);
         recyclerView.setAdapter(adapterTomorrow);
     }
 }

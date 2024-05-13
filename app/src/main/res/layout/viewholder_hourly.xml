@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background_hourly"
+        android:background="@drawable/back_hourly"
         android:orientation="vertical">
 
         <TextView
@@ -28,7 +28,7 @@
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/tianqi_baoyuzhuandabaoyu" />
+            app:srcCompat="@drawable/_qingtianduoyun" />
 
         <TextView
             android:id="@+id/temperatureText"

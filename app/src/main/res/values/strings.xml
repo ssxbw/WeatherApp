@@ -1,16 +1,16 @@
 <resources>
     <string name="app_name">Weather</string>
-    <string name="city">City</string>
+    <string name="city">- -</string>
     <string name="date">Mon June 17</string>
-    <string name="baoyu">暴雨</string>
-    <string name="temperature">25℃</string>
-    <string name="temperature_range">24~30℃</string>
+    <string name="main_weather">- -</string>
+    <string name="temperature">- -</string>
+    <string name="temperature_range">- -</string>
     <string name="humidity">湿度</string>
-    <string name="humidity_value">20%</string>
-    <string name="rainfall_probability">降雨概率</string>
-    <string name="rainfall_probability_value">50%</string>
+    <string name="humidity_value">- -</string>
+    <string name="rainfall_probability">降雨量</string>
+    <string name="rainfall_probability_value">- -</string>
     <string name="wind">风力</string>
-    <string name="wind_value">东风3级</string>
+    <string name="wind_value">- -</string>
     <string name="today">今天</string>
     <string name="next_seven_days">未来七天></string>
     <string name="weather">天气晴</string>
@@ -20,4 +20,6 @@
     <string name="next_seven_status">晴</string>
     <string name="next_seven_high_temp">30</string>
     <string name="next_seven_low_temp">24</string>
+    <string name="city_manager">城市管理</string>
+    <string name="search_city_weather">搜索城市天气</string>
 </resources>

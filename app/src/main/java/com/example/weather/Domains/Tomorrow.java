@@ -3,20 +3,64 @@ package com.example.weather.Domains;
 public class Tomorrow {
     private String date;
 
-    private String picPath;
+    private String picCode;
 
-    private String status;
+    private String weather;
 
-    private int highTemperature;
+    private String highTemperature;
 
-    private int lowTemperature;
+    private String lowTemperature;
 
-    public Tomorrow(String date, String picPath, String status, int highTemperature, int lowTemperature) {
+    private String wind;
+
+    private String rain;
+
+    private String humidity;
+
+    public Tomorrow() {
+        this.date = "- -";
+        this.picCode = "";
+        this.weather = "- -";
+        this.highTemperature = "-";
+        this.lowTemperature = "-";
+        this.wind = "- -";
+        this.rain = "- -";
+        this.humidity = "- -";
+    }
+
+    public Tomorrow(String date, String picCode, String weather, String highTemperature, String lowTemperature, String wind, String rain, String humidity) {
         this.date = date;
-        this.picPath = picPath;
-        this.status = status;
+        this.picCode = picCode;
+        this.weather = weather;
         this.highTemperature = highTemperature;
         this.lowTemperature = lowTemperature;
+        this.wind = wind;
+        this.rain = rain;
+        this.humidity = humidity;
+    }
+
+    public String getWind() {
+        return wind;
+    }
+
+    public void setWind(String wind) {
+        this.wind = wind;
+    }
+
+    public String getRain() {
+        return rain;
+    }
+
+    public void setRain(String rain) {
+        this.rain = rain;
+    }
+
+    public String getHumidity() {
+        return humidity;
+    }
+
+    public void setHumidity(String humidity) {
+        this.humidity = humidity;
     }
 
     public String getDate() {
@@ -27,35 +71,46 @@ public class Tomorrow {
         this.date = date;
     }
 
-    public String getPicPath() {
-        return picPath;
+    public String getPicCode() {
+        return picCode;
     }
 
-    public void setPicPath(String picPath) {
-        this.picPath = picPath;
+    public void setPicCode(String picCode) {
+        this.picCode = picCode;
     }
 
-    public String getStatus() {
-        return status;
+    public String getWeather() {
+        return weather;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setWeather(String status) {
+        this.weather = status;
     }
 
-    public int getHighTemperature() {
+    public String getHighTemperature() {
         return highTemperature;
     }
 
-    public void setHighTemperature(int highTemperature) {
+    public void setHighTemperature(String highTemperature) {
         this.highTemperature = highTemperature;
     }
 
-    public int getLowTemperature() {
+    public String getLowTemperature() {
         return lowTemperature;
     }
 
-    public void setLowTemperature(int lowTemperature) {
+    public void setLowTemperature(String lowTemperature) {
         this.lowTemperature = lowTemperature;
+    }
+
+    public void refresh() {
+        this.date = "- -";
+        this.picCode = "";
+        this.weather = "- -";
+        this.highTemperature = "-";
+        this.lowTemperature = "-";
+        this.wind = "- -";
+        this.rain = "- -";
+        this.humidity = "- -";
     }
 }

@@ -4,37 +4,49 @@ public class Hourly {
 
     private String hour;
 
-    private int temperature;
+    private String temperature;
 
-    public Hourly(String hour, int temperature, String picPath) {
-        this.hour = hour;
-        this.temperature = temperature;
-        this.picPath = picPath;
+    private String picCode;
+
+    public Hourly() {
+        this.hour = "- -";
+        this.picCode = "100";
+        this.temperature = "-";
     }
 
-    private String picPath;
+    public Hourly(String hour, String temperature, String picCode) {
+        this.hour = hour;
+        this.temperature = temperature;
+        this.picCode = picCode;
+    }
 
     public void setHour(String hour) {
         this.hour = hour;
     }
 
-    public void setPicPath(String picPath) {
-        this.picPath = picPath;
+    public void setPicCode(String picCode) {
+        this.picCode = picCode;
     }
 
     public String getHour() {
         return hour;
     }
 
-    public String getPicPath() {
-        return picPath;
+    public String getPicCode() {
+        return picCode;
     }
 
-    public void setTemperature(int temperature) {
+    public void setTemperature(String temperature) {
         this.temperature = temperature;
     }
 
-    public int getTemperature() {
+    public String getTemperature() {
         return temperature;
+    }
+
+    public void refresh() {
+        this.hour = "- -";
+        this.picCode = "100";
+        this.temperature = "-";
     }
 }

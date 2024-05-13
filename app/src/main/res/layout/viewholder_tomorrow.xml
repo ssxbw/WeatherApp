@@ -28,10 +28,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/dateText"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/tianqi_baoyuzhuandabaoyu" />
+        app:srcCompat="@drawable/_qingtianduoyun" />
 
     <TextView
-        android:id="@+id/statusText"
+        android:id="@+id/weatherText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
